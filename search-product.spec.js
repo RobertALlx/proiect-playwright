@@ -1,0 +1,22 @@
+import { test, expect, chromium } from '@playwright/test';
+test.setTimeout(130_000); 
+test('Test Case 9: Search Product', async () => {
+  const browser = await chromium.launch({ headless: false, slowMo: 1000 });
+  const context = await browser.newContext();
+  const page = await context.newPage();
+  await page.goto('https://automationexercise.com/test_cases');
+  await page.getByRole('button', { name: 'Consent' }).click();
+  await page.getByRole('heading', { name: 'Test Case 9: Search Product' }).click();
+  await page.getByRole('link', { name: 'Test Case 9: Search Product' }).click();
+  await page.getByRole('link', { name: '\'http://automationexercise.' }).click();
+  await page.getByRole('link', { name: ' Products' }).click();
+  await page.getByRole('textbox', { name: 'Search Product' }).click();
+  await page.getByRole('textbox', { name: 'Search Product' }).press('CapsLock');
+  await page.getByRole('textbox', { name: 'Search Product' }).fill('T');
+  await page.getByRole('textbox', { name: 'Search Product' }).press('CapsLock');
+  await page.getByRole('textbox', { name: 'Search Product' }).fill('Top');
+  await page.getByRole('button', { name: '' }).click();
+  await page.getByText('Searched Products  Added!').click();
+  await page.getByText('Searched Products  Added!').click();
+  await expect(page.locator('body')).toContainText('Searched Products  Added! Your product has been added to cart. View Cart Continue Shopping Rs. 500 Blue Top Add to cart Rs. 500 Blue Top Add to cart View Product Rs. 600 Winter Top Add to cart Rs. 600 Winter Top Add to cart View Product Rs. 400 Summer White Top Add to cart Rs. 400 Summer White Top Add to cart View Product Rs. 1000 Madame Top For Women Add to cart Rs. 1000 Madame Top For Women Add to cart View Product Rs. 700 Fancy Green Top Add to cart Rs. 700 Fancy Green Top Add to cart View Product Rs. 499 Sleeves Printed Top - White Add to cart Rs. 499 Sleeves Printed Top - White Add to cart View Product Rs. 359 Half Sleeves Top Schiffli Detailing - Pink Add to cart Rs. 359 Half Sleeves Top Schiffli Detailing - Pink Add to cart View Product Rs. 278 Frozen Tops For Kids Add to cart Rs. 278 Frozen Tops For Kids Add to cart View Product Rs. 679 Full Sleeves Top Cherry - Pink Add to cart Rs. 679 Full Sleeves Top Cherry - Pink Add to cart View Product Rs. 315 Printed Off Shoulder Top - White Add to cart Rs. 315 Printed Off Shoulder Top - White Add to cart View Product Rs. 478 Sleeves Top and Short - Blue & Pink Add to cart Rs. 478 Sleeves Top and Short - Blue & Pink Add to cart View Product Rs. 1200 Little Girls Mr. Panda Shirt Add to cart Rs. 1200 Little Girls Mr. Panda Shirt Add to cart View Product Rs. 849 Colour Blocked Shirt – Sky Blue Add to cart Rs. 849 Colour Blocked Shirt – Sky Blue Add to cart View Product Rs. 1400 Lace Top For Women Add to cart Rs. 1400 Lace Top For Women Add to cart View Product');
+});
